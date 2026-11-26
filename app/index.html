@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Project Loom</title>
+  <link rel="stylesheet" href="loom.css">
+  <link rel="stylesheet" href="project-setup.css">
+  <script type="module" src="main.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+  <header class="topbar">
+    <div class="identity"><span class="loom-mark" aria-hidden="true"><i></i><i></i><i></i></span>Project Loom</div>
+    <section id="providers" class="providers" aria-label="Harness plan allowance"></section>
+    <span id="demo-label" class="demo-label" hidden>Demo data</span>
+    <button id="shell-add-harness" class="add-provider" type="button" aria-controls="harness-view" hidden><b aria-hidden="true">+</b> Add harness</button>
+  </header>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <nav aria-label="Workspace">
+        <button type="button" class="folder-link" data-dashboard><span class="dashboard-icon" aria-hidden="true"></span>Dashboard</button>
+      </nav>
+      <div class="sidebar-title" id="project-label">Project folders</div>
+      <nav id="projects" aria-labelledby="project-label"></nav>
+      <div class="sidebar-foot"><span class="local-dot" aria-hidden="true"></span>Local prototype</div>
+    </aside>
+
+    <main id="workspace" tabindex="-1">
+      <div id="dashboard" hidden>
+        <header class="project-head dashboard-head">
+          <div><h1 id="dashboard-title" tabindex="-1">Dashboard</h1><p>See what’s running across your projects and pick up questions that need you.</p></div>
+          <button class="primary action" type="button" data-new-project aria-haspopup="dialog"><span aria-hidden="true">+</span> New project</button>
+        </header>
+        <div id="project-store-status" class="panel-note" role="status" aria-atomic="true"></div>
+        <button id="retry-connection" class="outline action" type="button" hidden>Retry connection</button>
+        <section id="dashboard-metrics" class="metrics" aria-label="Today's workspace statistics"></section>
+        <section id="dashboard-local-usage" class="panel local-usage" hidden></section>
+        <div id="dashboard-grid" class="dashboard-grid">
+          <section id="dashboard-projects" class="panel" aria-labelledby="dashboard-projects-title"></section>
+          <div class="dashboard-activity">
+            <section id="dashboard-questions" class="panel" aria-labelledby="dashboard-questions-title"></section>
+            <section id="dashboard-running" class="panel" aria-labelledby="dashboard-running-title"></section>
+          </div>
+        </div>
+      </div>
+      <div id="harness-view" hidden>
+        <header class="project-head">
+          <h1 id="harness-title" tabindex="-1">Harnesses</h1>
+          <button id="harness-back" type="button" class="outline action">Back</button>
+        </header>
+        <div class="harness-panels">
+          <section class="panel" aria-labelledby="harness-claude-title">
+            <header class="panel-head">
+              <h2 id="harness-claude-title"><span class="mark claude" aria-hidden="true">✳</span> Claude</h2>
+              <span class="panel-note">Delegate from</span>
+            </header>
+            <p class="harness-note">Not set up. Needs the live setup (background service and Claude Desktop registration), which has not been done.</p>
+          </section>
+          <section class="panel" aria-labelledby="harness-codex-title">
+            <header class="panel-head">
+              <h2 id="harness-codex-title"><span class="mark codex" aria-hidden="true">⌘</span> Codex</h2>
+              <span class="panel-note">Delegate to</span>
+            </header>
+            <p id="harness-project-message" class="harness-note"></p>
+            <ul id="harness-projects" class="harness-projects" hidden></ul>
+          </section>
+        </div>
+        <section id="harness-local-usage" class="panel local-usage" hidden></section>
+        <p id="harness-announcement" class="visually-hidden" role="status" aria-atomic="true"></p>
+      </div>
+      <div id="project-view" hidden>
+        <div class="project-head">
+          <div>
+            <div id="breadcrumb" class="breadcrumb"></div>
+            <h1 id="project-title" tabindex="-1"></h1>
+            <p class="folder-path" id="folder-path"></p>
+            <p id="project-registration" class="registration-state" hidden></p>
+            <div id="project-relink"></div>
+          </div>
+          <button id="jump-to-question" class="question-button" type="button" aria-controls="detail"></button>
+        </div>
+        <section id="project-setup" hidden aria-label="Project setup and activity"></section>
+        <section id="desktop-project-activity" class="panel" aria-labelledby="desktop-activity-title" hidden>
+          <header class="panel-head">
+            <h2 id="desktop-activity-title">Activity</h2>
+            <button id="refresh-project-activity" type="button" class="outline action" aria-controls="project-activity chat-relations desktop-chats">Refresh</button>
+          </header>
+          <p id="project-activity-status" class="empty"></p>
+          <p id="project-activity-coverage" class="empty" hidden></p>
+        </section>
+        <nav id="draft-nav" class="draft-nav" aria-label="Design drafts">
+          <span class="draft-label">Compare drafts</span>
+          <div class="draft-options">
+            <button type="button" data-layout="overview">Project overview</button>
+            <button type="button" data-layout="board">Agent board</button>
+            <button type="button" data-layout="build">Build review</button>
+          </div>
+        </nav>
+        <section id="metrics" class="metrics" aria-label="Today's project statistics"></section>
+
+        <div id="work-grid" class="work-grid">
+          <div id="project-activity" role="group" aria-label="Project activity">
+            <section id="running" class="panel" aria-labelledby="running-title"></section>
+            <section id="open-questions" class="panel" aria-labelledby="open-questions-title"></section>
+          </div>
+          <section id="map" class="panel" aria-labelledby="map-title">
+            <header class="panel-head map-head">
+              <h2 id="map-title" tabindex="-1">Chat map</h2>
+              <div class="map-tools">
+                <span id="map-legend" class="panel-note map-legend" hidden><b aria-hidden="true">⟶</b> Delegated to</span>
+                <div class="draft-options map-options" role="group" aria-label="Chat relationship view">
+                  <button type="button" data-chat-view="map" aria-controls="chat-relations" aria-pressed="true">Map</button>
+                  <button type="button" data-chat-view="list" aria-controls="chat-relations" aria-pressed="false">List</button>
+                </div>
+              </div>
+            </header>
+            <p id="relationship-status" class="empty" hidden></p>
+            <div id="chat-relations" data-view="map"></div>
+          </section>
+          <section id="board" class="panel" aria-labelledby="board-title"></section>
+          <section id="builds" class="panel" aria-labelledby="builds-title"></section>
+          <aside id="detail" class="panel inspector" aria-labelledby="detail-title" hidden></aside>
+        </div>
+        <section id="desktop-chats" class="panel" aria-labelledby="desktop-chats-title" hidden></section>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="dialog" aria-labelledby="dialog-title">
+    <header class="dialog-head"><h2 id="dialog-title"></h2>
+      <form method="dialog"><button type="submit" class="close-button" aria-label="Close">×</button></form>
+    </header>
+    <div id="dialog-content"></div>
+    <p id="quota-dialog-announcement" class="visually-hidden" role="status" aria-atomic="true"></p>
+  </dialog>
+  <dialog id="setup-dialog" aria-labelledby="setup-title">
+    <header class="dialog-head"><h2 id="setup-title">New project</h2><button type="button" class="close-button" aria-label="Close" data-cancel-setup>×</button></header>
+    <form id="setup-form" novalidate>
+      <div class="setup-main">
+        <ol id="setup-steps" class="setup-steps" aria-label="Project setup steps">
+          <li><span aria-hidden="true">1</span>Folder</li>
+          <li><span aria-hidden="true">2</span>Goal</li>
+          <li><span aria-hidden="true">3</span>Harness &amp; rules</li>
+          <li><span aria-hidden="true">4</span>Review</li>
+        </ol>
+        <div class="setup-fields">
+          <section data-setup-step>
+            <h3 tabindex="-1">Choose a folder</h3>
+            <p class="setup-intro">Add the local folder where your project lives.</p>
+            <label for="setup-directory">Project directory</label>
+            <input id="setup-directory" type="text" spellcheck="false" autocomplete="off" required maxlength="4096" placeholder="/loom-fixtures/my-project" aria-describedby="setup-path-hint setup-directory-error">
+            <p id="setup-path-hint" class="field-hint">Enter a sample folder path. The browser preview uses fixture folders.</p>
+            <p id="setup-directory-error" class="setup-error" hidden></p>
+            <button class="outline action" type="button" id="setup-open-existing" hidden>Open existing project</button>
+            <label for="setup-name">Project name</label>
+            <input id="setup-name" type="text" required maxlength="80" aria-describedby="setup-name-error">
+            <p id="setup-name-error" class="setup-error" hidden></p>
+          </section>
+          <section data-setup-step hidden>
+            <h3 tabindex="-1">Set a project goal</h3>
+            <p class="setup-intro">Pick a starting point or write your own.</p>
+            <label for="setup-goal">Goal</label>
+            <select id="setup-goal"></select>
+            <label for="setup-description">Short description <span id="setup-description-optional" class="optional">Optional</span></label>
+            <textarea id="setup-description" rows="3" maxlength="280" placeholder="What should the project accomplish?" aria-describedby="setup-description-error"></textarea>
+            <p id="setup-description-error" class="setup-error" hidden></p>
+          </section>
+          <section data-setup-step hidden>
+            <h3 tabindex="-1">Choose a main harness</h3>
+            <p class="setup-intro">Pick the default harness for new work in this project.</p>
+            <fieldset class="setup-harnesses" id="setup-harness" aria-describedby="setup-harness-error">
+              <legend>Main harness</legend>
+              <div id="setup-harness-options"></div>
+            </fieldset>
+            <p id="setup-harness-error" class="setup-error" hidden></p>
+            <label for="setup-rules">Project rules <span class="optional">Optional</span></label>
+            <textarea id="setup-rules" rows="3" maxlength="1200" placeholder="For example, run tests before handing back a change."></textarea>
+          </section>
+          <section data-setup-step hidden>
+            <h3 tabindex="-1">Review your project</h3>
+            <p class="setup-intro">Check the details before adding this folder to Project Loom.</p>
+            <dl id="setup-review" class="project-details"></dl>
+          </section>
+        </div>
+      </div>
+      <p id="setup-alert" class="visually-hidden" role="alert" aria-atomic="true"></p>
+      <p id="setup-save-error" class="setup-error" hidden></p>
+      <footer class="setup-actions">
+        <button type="button" class="outline action" data-cancel-setup>Cancel</button>
+        <div><button id="setup-back" type="button" class="outline action" hidden>Back</button><button id="setup-next" type="submit" class="primary action">Continue</button></div>
+      </footer>
+    </form>
+  </dialog>
+  <dialog id="relink-dialog" aria-labelledby="relink-title" aria-describedby="relink-description">
+    <header class="dialog-head"><h2 id="relink-title">Use a different folder?</h2></header>
+    <div class="relink-dialog-body">
+      <p id="relink-description">The folder you chose is different from the one saved for <strong id="relink-name"></strong>.</p>
+      <dl class="relink-paths">
+        <div><dt>Saved folder</dt><dd id="relink-saved-path" class="folder-path"></dd></div>
+        <div><dt>Selected folder</dt><dd id="relink-selected-path" class="folder-path"></dd></div>
+      </dl>
+    </div>
+    <footer class="setup-actions relink-actions">
+      <button type="button" class="outline action" id="relink-cancel" autofocus>Cancel</button>
+      <button type="button" class="primary action" id="relink-confirm">Use this folder</button>
+    </footer>
+  </dialog>
+  <dialog id="delegation-dialog" aria-labelledby="delegation-title" aria-describedby="delegation-project">
+    <form id="delegation-form" novalidate>
+      <header class="dialog-head"><h2 id="delegation-title">Set up Codex</h2></header>
+      <fieldset id="delegation-fields" class="setup-fields">
+        <p id="delegation-project"></p>
+        <label for="delegation-account">Account name</label>
+        <input id="delegation-account" type="text" autocomplete="off" aria-describedby="delegation-account-hint" required autofocus>
+        <p id="delegation-account-hint" class="field-hint">Use your own label, such as Private. Leave out your email address.</p>
+        <label for="delegation-model">Model</label>
+        <input id="delegation-model" type="text" autocomplete="off" spellcheck="false" required>
+        <p id="delegation-warning">Loom cannot see which Codex account is signed in. If you switch accounts, Loom will not notice.</p>
+        <label class="delegation-acknowledgement">
+          <input id="delegation-acknowledged" type="checkbox" aria-describedby="delegation-warning" required> I understand
+        </label>
+        <p id="delegation-error" class="setup-error" role="alert" aria-atomic="true"></p>
+        <p id="delegation-progress" class="visually-hidden" role="status" aria-atomic="true"></p>
+      </fieldset>
+      <footer class="setup-actions">
+        <button id="delegation-cancel" type="button" class="outline action">Cancel</button>
+        <button id="delegation-save" type="submit" class="primary action">Save setup</button>
+      </footer>
+    </form>
+  </dialog>
+  <div id="announcement" class="visually-hidden" role="status"></div>
+  <p id="quota-announcement" class="visually-hidden" role="status" aria-atomic="true"></p>
+  <p id="usage-announcement" class="visually-hidden" role="status" aria-atomic="true"></p>
+  <p id="run-usage-announcement" class="visually-hidden" role="status" aria-atomic="true"></p>
+  <p id="relationship-announcement" class="visually-hidden" role="status" aria-atomic="true"></p>
+  <p id="detail-announcement" class="visually-hidden" role="status" aria-atomic="true"></p>
+  <p id="edit-result-announcement" class="visually-hidden" role="status" aria-atomic="true"></p>
+  <p id="reply-alert" class="visually-hidden" role="alert" aria-atomic="true"></p>
+</body>
+</html>

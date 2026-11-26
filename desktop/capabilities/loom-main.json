@@ -1,0 +1,7 @@
+{
+  "identifier": "loom-main",
+  "description": "Manage saved projects and their Codex delegation setup, and read local usage and project activity.",
+  "webviews": ["main"],
+  "local": true,
+  "permissions": ["allow-resolve-folder", "allow-choose-folder", "allow-list-projects", "allow-create-project", "allow-connect-projects", "allow-relink-project", "allow-confirm-relink", "allow-project-activity", "allow-delegation-status", "allow-enable-delegation", "allow-local-usage"]
+}

@@ -1,0 +1,936 @@
+{
+  "claude": {
+    "usage": {
+      "schema": 1,
+      "harness": "claude",
+      "quota": {
+        "outcome": "reconciled",
+        "entries": [
+          {
+            "label": "plan-allowance",
+            "provider": "claude",
+            "account": "Sample Claude account",
+            "plan": "Claude Pro (sample)",
+            "bucket": "5 hours",
+            "windowSeconds": 18000,
+            "resetAt": 1795613040000,
+            "remaining": 72,
+            "remainingPercent": 72,
+            "total": 100,
+            "units": "requests",
+            "semantics": "remaining",
+            "observedAt": 1795608000000,
+            "state": "ok",
+            "freshness": "fresh",
+            "sources": [
+              "Claude Desktop (sample)"
+            ],
+            "harnesses": [
+              "claude"
+            ],
+            "credits": 12,
+            "earnedResets": null
+          },
+          {
+            "label": "plan-allowance",
+            "provider": "claude",
+            "account": "Sample Claude account",
+            "plan": "Claude Pro (sample)",
+            "bucket": "Weekly",
+            "windowSeconds": 604800,
+            "resetAt": 1795867200000,
+            "remaining": 58,
+            "remainingPercent": 58,
+            "total": 100,
+            "units": "requests",
+            "semantics": "remaining",
+            "observedAt": 1795608000000,
+            "state": "ok",
+            "freshness": "fresh",
+            "sources": [
+              "Claude Desktop (sample)"
+            ],
+            "harnesses": [
+              "claude"
+            ],
+            "credits": null,
+            "earnedResets": null
+          }
+        ]
+      },
+      "totals": {
+        "label": "measured",
+        "rows": [
+          {
+            "source": "Claude Desktop (sample)",
+            "scope": "session",
+            "model": "Claude Sonnet",
+            "observedAt": 1795604400000,
+            "usage": {
+              "input": "65000",
+              "cacheRead": "12000",
+              "cacheWrite": "300",
+              "output": "2000",
+              "reasoning": "150"
+            }
+          },
+          {
+            "source": "Claude Desktop (sample)",
+            "scope": "session",
+            "model": "Claude Sonnet",
+            "observedAt": 1795607940000,
+            "usage": {
+              "input": "15000",
+              "cacheRead": "6000",
+              "cacheWrite": "200",
+              "output": "1500",
+              "reasoning": "50"
+            }
+          },
+          {
+            "source": "Claude Desktop (sample)",
+            "scope": "session",
+            "model": "Unpriced Claude model",
+            "observedAt": 1795608000000,
+            "usage": {
+              "input": "1500",
+              "cacheRead": "0",
+              "cacheWrite": "0",
+              "output": "800",
+              "reasoning": "0"
+            }
+          }
+        ],
+        "byScope": {
+          "session": [
+            {
+              "model": "Claude Sonnet",
+              "usage": {
+                "input": "80000",
+                "cacheRead": "18000",
+                "cacheWrite": "500",
+                "output": "3500",
+                "reasoning": "200"
+              }
+            },
+            {
+              "model": "Unpriced Claude model",
+              "usage": {
+                "input": "1500",
+                "cacheRead": "0",
+                "cacheWrite": "0",
+                "output": "800",
+                "reasoning": "0"
+              }
+            }
+          ]
+        }
+      },
+      "estimate": {
+        "outcome": "estimated",
+        "label": "estimated-api-value",
+        "scopes": [
+          {
+            "scope": "session",
+            "coverage": {
+              "kind": "handoff-coverage",
+              "pricedTokens": "102200",
+              "totalTokens": "104500"
+            },
+            "rows": [
+              {
+                "source": "Claude Desktop (sample)",
+                "model": "Claude Sonnet",
+                "observedAt": 1795604400000,
+                "rate": {
+                  "currency": "USD",
+                  "source": "Claude fixture rate table",
+                  "effectiveFrom": 1793491200000
+                },
+                "tiers": {
+                  "input": {
+                    "tokens": "65000",
+                    "value": {
+                      "numerator": "195000000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "cacheRead": {
+                    "tokens": "12000",
+                    "value": {
+                      "numerator": "3600000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "cacheWrite": {
+                    "tokens": "300",
+                    "value": {
+                      "numerator": "1125000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "output": {
+                    "tokens": "2000",
+                    "value": {
+                      "numerator": "30000000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "reasoning": {
+                    "tokens": "150",
+                    "value": {
+                      "numerator": "2250000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  }
+                }
+              },
+              {
+                "source": "Claude Desktop (sample)",
+                "model": "Claude Sonnet",
+                "observedAt": 1795607940000,
+                "rate": {
+                  "currency": "USD",
+                  "source": "Claude fixture rate table",
+                  "effectiveFrom": 1793491200000
+                },
+                "tiers": {
+                  "input": {
+                    "tokens": "15000",
+                    "value": {
+                      "numerator": "45000000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "cacheRead": {
+                    "tokens": "6000",
+                    "value": {
+                      "numerator": "1800000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "cacheWrite": {
+                    "tokens": "200",
+                    "value": {
+                      "numerator": "750000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "output": {
+                    "tokens": "1500",
+                    "value": {
+                      "numerator": "22500000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "reasoning": {
+                    "tokens": "50",
+                    "value": {
+                      "numerator": "750000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  }
+                }
+              },
+              {
+                "source": "Claude Desktop (sample)",
+                "model": "Unpriced Claude model",
+                "observedAt": 1795608000000,
+                "rate": null,
+                "tiers": {
+                  "input": {
+                    "tokens": "1500",
+                    "value": null,
+                    "reason": "unknown-model"
+                  },
+                  "cacheRead": {
+                    "tokens": "0",
+                    "value": null,
+                    "reason": "unknown-model"
+                  },
+                  "cacheWrite": {
+                    "tokens": "0",
+                    "value": null,
+                    "reason": "unknown-model"
+                  },
+                  "output": {
+                    "tokens": "800",
+                    "value": null,
+                    "reason": "unknown-model"
+                  },
+                  "reasoning": {
+                    "tokens": "0",
+                    "value": null,
+                    "reason": "unknown-model"
+                  }
+                }
+              }
+            ],
+            "currencies": [
+              {
+                "currency": "USD",
+                "value": "302775",
+                "rates": [
+                  {
+                    "currency": "USD",
+                    "source": "Claude fixture rate table",
+                    "effectiveFrom": 1793491200000
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "excludedUnverified": true
+  },
+  "codex": {
+    "usage": {
+      "schema": 1,
+      "harness": "codex",
+      "quota": {
+        "outcome": "reconciled",
+        "entries": [
+          {
+            "label": "plan-allowance",
+            "provider": "codex",
+            "account": "Sample Codex account",
+            "plan": "Codex Plus (sample)",
+            "bucket": "5 hours",
+            "windowSeconds": 18000,
+            "resetAt": 1795604400000,
+            "remaining": null,
+            "remainingPercent": null,
+            "total": 100,
+            "units": "requests",
+            "semantics": "remaining",
+            "observedAt": 1795600800000,
+            "state": "ok",
+            "freshness": "stale",
+            "sources": [
+              "Codex app (sample)"
+            ],
+            "harnesses": [
+              "codex"
+            ],
+            "credits": null,
+            "earnedResets": null
+          },
+          {
+            "label": "plan-allowance",
+            "provider": "codex",
+            "account": "Sample Codex account",
+            "plan": "Codex Plus (sample)",
+            "bucket": "Weekly",
+            "windowSeconds": 604800,
+            "resetAt": 1795953600000,
+            "remaining": null,
+            "remainingPercent": null,
+            "total": 100,
+            "units": "requests",
+            "semantics": "remaining",
+            "observedAt": 1795608000000,
+            "state": "conflict",
+            "freshness": "fresh",
+            "sources": [
+              "Codex CLI (sample)",
+              "Codex app (sample)"
+            ],
+            "harnesses": [
+              "codex"
+            ],
+            "credits": null,
+            "earnedResets": null
+          }
+        ]
+      },
+      "totals": {
+        "label": "measured",
+        "rows": [
+          {
+            "source": "Codex app (sample)",
+            "scope": "account",
+            "model": "Codex Standard",
+            "observedAt": 1795608000000,
+            "usage": {
+              "input": "9007199254740993",
+              "cacheRead": "0",
+              "cacheWrite": "0",
+              "output": "9",
+              "reasoning": "0"
+            }
+          }
+        ],
+        "byScope": {
+          "account": [
+            {
+              "model": "Codex Standard",
+              "usage": {
+                "input": "9007199254740993",
+                "cacheRead": "0",
+                "cacheWrite": "0",
+                "output": "9",
+                "reasoning": "0"
+              }
+            }
+          ]
+        }
+      },
+      "estimate": {
+        "outcome": "estimated",
+        "label": "estimated-api-value",
+        "scopes": [
+          {
+            "scope": "account",
+            "coverage": {
+              "kind": "account",
+              "pricedTokens": "9007199254741002",
+              "totalTokens": "9007199254741002"
+            },
+            "rows": [
+              {
+                "source": "Codex app (sample)",
+                "model": "Codex Standard",
+                "observedAt": 1795608000000,
+                "rate": {
+                  "currency": "USD",
+                  "source": "Codex fixture rate table",
+                  "effectiveFrom": 1793491200000
+                },
+                "tiers": {
+                  "input": {
+                    "tokens": "9007199254740993",
+                    "value": {
+                      "numerator": "9007199254740993000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "cacheRead": {
+                    "tokens": "0",
+                    "value": {
+                      "numerator": "0",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "cacheWrite": {
+                    "tokens": "0",
+                    "value": {
+                      "numerator": "0",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "output": {
+                    "tokens": "9",
+                    "value": {
+                      "numerator": "99000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "reasoning": {
+                    "tokens": "0",
+                    "value": {
+                      "numerator": "0",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  }
+                }
+              }
+            ],
+            "currencies": [
+              {
+                "currency": "USD",
+                "value": "9007199254741092",
+                "rates": [
+                  {
+                    "currency": "USD",
+                    "source": "Codex fixture rate table",
+                    "effectiveFrom": 1793491200000
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "excludedUnverified": false
+  },
+  "openclaw": {
+    "usage": {
+      "schema": 1,
+      "harness": "openclaw",
+      "quota": {
+        "outcome": "reconciled",
+        "entries": [
+          {
+            "label": "plan-allowance",
+            "provider": "openclaw",
+            "account": "Sample gateway account",
+            "plan": "Gateway (sample)",
+            "bucket": "Plan",
+            "windowSeconds": null,
+            "resetAt": null,
+            "remaining": null,
+            "remainingPercent": null,
+            "total": null,
+            "units": "requests",
+            "semantics": "remaining",
+            "observedAt": 1795608000000,
+            "state": "unavailable",
+            "freshness": "fresh",
+            "sources": [
+              "OpenClaw gateway (sample)"
+            ],
+            "harnesses": [
+              "openclaw"
+            ],
+            "credits": null,
+            "earnedResets": null
+          }
+        ]
+      },
+      "totals": {
+        "label": "measured",
+        "rows": [
+          {
+            "source": "OpenClaw gateway (sample)",
+            "scope": "turn",
+            "model": "Gateway model",
+            "observedAt": 1795608000000,
+            "usage": {
+              "input": "14500",
+              "cacheRead": "7900",
+              "cacheWrite": "0",
+              "output": "2600",
+              "reasoning": "0"
+            }
+          }
+        ],
+        "byScope": {
+          "turn": [
+            {
+              "model": "Gateway model",
+              "usage": {
+                "input": "14500",
+                "cacheRead": "7900",
+                "cacheWrite": "0",
+                "output": "2600",
+                "reasoning": "0"
+              }
+            }
+          ]
+        }
+      },
+      "estimate": {
+        "outcome": "estimated",
+        "label": "estimated-api-value",
+        "scopes": [
+          {
+            "scope": "turn",
+            "coverage": {
+              "kind": "observed-scope",
+              "pricedTokens": "0",
+              "totalTokens": "25000"
+            },
+            "rows": [
+              {
+                "source": "OpenClaw gateway (sample)",
+                "model": "Gateway model",
+                "observedAt": 1795608000000,
+                "rate": null,
+                "tiers": {
+                  "input": {
+                    "tokens": "14500",
+                    "value": null,
+                    "reason": "unknown-model"
+                  },
+                  "cacheRead": {
+                    "tokens": "7900",
+                    "value": null,
+                    "reason": "unknown-model"
+                  },
+                  "cacheWrite": {
+                    "tokens": "0",
+                    "value": null,
+                    "reason": "unknown-model"
+                  },
+                  "output": {
+                    "tokens": "2600",
+                    "value": null,
+                    "reason": "unknown-model"
+                  },
+                  "reasoning": {
+                    "tokens": "0",
+                    "value": null,
+                    "reason": "unknown-model"
+                  }
+                }
+              }
+            ],
+            "currencies": []
+          }
+        ]
+      }
+    },
+    "excludedUnverified": false
+  },
+  "antigravity": {
+    "usage": {
+      "schema": 1,
+      "harness": "antigravity",
+      "quota": {
+        "outcome": "reconciled",
+        "entries": [
+          {
+            "label": "plan-allowance",
+            "provider": "antigravity",
+            "account": "Sample Antigravity account",
+            "plan": "Antigravity (sample)",
+            "bucket": "Plan",
+            "windowSeconds": null,
+            "resetAt": null,
+            "remaining": null,
+            "remainingPercent": null,
+            "total": null,
+            "units": "requests",
+            "semantics": "remaining",
+            "observedAt": 1795608000000,
+            "state": "unsupported",
+            "freshness": "fresh",
+            "sources": [
+              "Antigravity (sample)"
+            ],
+            "harnesses": [
+              "antigravity"
+            ],
+            "credits": null,
+            "earnedResets": null
+          }
+        ]
+      },
+      "totals": {
+        "label": "measured",
+        "rows": [],
+        "byScope": {}
+      },
+      "estimate": {
+        "outcome": "estimated",
+        "label": "estimated-api-value",
+        "scopes": []
+      }
+    },
+    "excludedUnverified": false
+  },
+  "hostile": {
+    "usage": {
+      "schema": 1,
+      "harness": "claude",
+      "quota": {
+        "outcome": "reconciled",
+        "entries": [
+          {
+            "label": "plan-allowance",
+            "provider": "claude",
+            "account": "<script>Fake account</script> LongAccountLongAccountLongAccountLongAccountLongAccountLongAccountLongAccountLongAccount",
+            "plan": "Claude Pro (sample)",
+            "bucket": "5 hours",
+            "windowSeconds": 18000,
+            "resetAt": 1795613040000,
+            "remaining": 72,
+            "remainingPercent": 72,
+            "total": 100,
+            "units": "requests",
+            "semantics": "remaining",
+            "observedAt": 1795608000000,
+            "state": "ok",
+            "freshness": "fresh",
+            "sources": [
+              "<img src=\"fake-quota.png\"> Fake source"
+            ],
+            "harnesses": [
+              "claude"
+            ],
+            "credits": 12,
+            "earnedResets": null
+          },
+          {
+            "label": "plan-allowance",
+            "provider": "claude",
+            "account": "<script>Fake account</script> LongAccountLongAccountLongAccountLongAccountLongAccountLongAccountLongAccountLongAccount",
+            "plan": "Claude Pro (sample)",
+            "bucket": "Weekly",
+            "windowSeconds": 604800,
+            "resetAt": 1795867200000,
+            "remaining": 58,
+            "remainingPercent": 58,
+            "total": 100,
+            "units": "requests",
+            "semantics": "remaining",
+            "observedAt": 1795608000000,
+            "state": "ok",
+            "freshness": "fresh",
+            "sources": [
+              "<img src=\"fake-quota.png\"> Fake source"
+            ],
+            "harnesses": [
+              "claude"
+            ],
+            "credits": null,
+            "earnedResets": null
+          }
+        ]
+      },
+      "totals": {
+        "label": "measured",
+        "rows": [
+          {
+            "source": "<img src=\"fake-quota.png\"> Fake source",
+            "scope": "session",
+            "model": "Claude Sonnet",
+            "observedAt": 1795604400000,
+            "usage": {
+              "input": "65000",
+              "cacheRead": "12000",
+              "cacheWrite": "300",
+              "output": "2000",
+              "reasoning": "150"
+            }
+          },
+          {
+            "source": "<img src=\"fake-quota.png\"> Fake source",
+            "scope": "session",
+            "model": "Claude Sonnet",
+            "observedAt": 1795607940000,
+            "usage": {
+              "input": "15000",
+              "cacheRead": "6000",
+              "cacheWrite": "200",
+              "output": "1500",
+              "reasoning": "50"
+            }
+          },
+          {
+            "source": "<img src=\"fake-quota.png\"> Fake source",
+            "scope": "session",
+            "model": "Unpriced Claude model",
+            "observedAt": 1795608000000,
+            "usage": {
+              "input": "1500",
+              "cacheRead": "0",
+              "cacheWrite": "0",
+              "output": "800",
+              "reasoning": "0"
+            }
+          }
+        ],
+        "byScope": {
+          "session": [
+            {
+              "model": "Claude Sonnet",
+              "usage": {
+                "input": "80000",
+                "cacheRead": "18000",
+                "cacheWrite": "500",
+                "output": "3500",
+                "reasoning": "200"
+              }
+            },
+            {
+              "model": "Unpriced Claude model",
+              "usage": {
+                "input": "1500",
+                "cacheRead": "0",
+                "cacheWrite": "0",
+                "output": "800",
+                "reasoning": "0"
+              }
+            }
+          ]
+        }
+      },
+      "estimate": {
+        "outcome": "estimated",
+        "label": "estimated-api-value",
+        "scopes": [
+          {
+            "scope": "session",
+            "coverage": {
+              "kind": "handoff-coverage",
+              "pricedTokens": "102200",
+              "totalTokens": "104500"
+            },
+            "rows": [
+              {
+                "source": "<img src=\"fake-quota.png\"> Fake source",
+                "model": "Claude Sonnet",
+                "observedAt": 1795604400000,
+                "rate": {
+                  "currency": "USD",
+                  "source": "Claude fixture rate table",
+                  "effectiveFrom": 1793491200000
+                },
+                "tiers": {
+                  "input": {
+                    "tokens": "65000",
+                    "value": {
+                      "numerator": "195000000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "cacheRead": {
+                    "tokens": "12000",
+                    "value": {
+                      "numerator": "3600000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "cacheWrite": {
+                    "tokens": "300",
+                    "value": {
+                      "numerator": "1125000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "output": {
+                    "tokens": "2000",
+                    "value": {
+                      "numerator": "30000000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "reasoning": {
+                    "tokens": "150",
+                    "value": {
+                      "numerator": "2250000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  }
+                }
+              },
+              {
+                "source": "<img src=\"fake-quota.png\"> Fake source",
+                "model": "Claude Sonnet",
+                "observedAt": 1795607940000,
+                "rate": {
+                  "currency": "USD",
+                  "source": "Claude fixture rate table",
+                  "effectiveFrom": 1793491200000
+                },
+                "tiers": {
+                  "input": {
+                    "tokens": "15000",
+                    "value": {
+                      "numerator": "45000000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "cacheRead": {
+                    "tokens": "6000",
+                    "value": {
+                      "numerator": "1800000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "cacheWrite": {
+                    "tokens": "200",
+                    "value": {
+                      "numerator": "750000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "output": {
+                    "tokens": "1500",
+                    "value": {
+                      "numerator": "22500000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  },
+                  "reasoning": {
+                    "tokens": "50",
+                    "value": {
+                      "numerator": "750000000",
+                      "denominator": "1000000"
+                    },
+                    "reason": null
+                  }
+                }
+              },
+              {
+                "source": "<img src=\"fake-quota.png\"> Fake source",
+                "model": "Unpriced Claude model",
+                "observedAt": 1795608000000,
+                "rate": null,
+                "tiers": {
+                  "input": {
+                    "tokens": "1500",
+                    "value": null,
+                    "reason": "unknown-model"
+                  },
+                  "cacheRead": {
+                    "tokens": "0",
+                    "value": null,
+                    "reason": "unknown-model"
+                  },
+                  "cacheWrite": {
+                    "tokens": "0",
+                    "value": null,
+                    "reason": "unknown-model"
+                  },
+                  "output": {
+                    "tokens": "800",
+                    "value": null,
+                    "reason": "unknown-model"
+                  },
+                  "reasoning": {
+                    "tokens": "0",
+                    "value": null,
+                    "reason": "unknown-model"
+                  }
+                }
+              }
+            ],
+            "currencies": [
+              {
+                "currency": "USD",
+                "value": "302775",
+                "rates": [
+                  {
+                    "currency": "USD",
+                    "source": "Claude fixture rate table",
+                    "effectiveFrom": 1793491200000
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "excludedUnverified": true
+  }
+}

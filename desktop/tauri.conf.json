@@ -1,0 +1,37 @@
+{
+  "productName": "Loom",
+  "version": "0.1.0",
+  "identifier": "dev.loom.desktop",
+  "build": {
+    "frontendDist": [
+      "dist/index.html",
+      "dist/loom.css",
+      "dist/project-setup.css",
+      "dist/main.mjs",
+      "dist/activity.mjs",
+      "dist/chat-details.mjs",
+      "dist/demo-data.mjs",
+      "dist/desktop-activity.mjs",
+      "dist/desktop-harnesses.mjs",
+      "dist/desktop-usage.mjs",
+      "dist/edit-result.mjs",
+      "dist/edit-result-view.mjs",
+      "dist/fixtures.mjs",
+      "dist/usage.mjs",
+      "dist/usage-card.mjs",
+      "dist/usage-fixtures.json",
+      "dist/wizard.mjs",
+      "dist/wizard-view.mjs",
+      "../app/desktop-picker.mjs",
+      "../app/desktop-store.mjs"
+    ]
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "security": {
+      "csp": "default-src 'none'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; connect-src ipc://localhost; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
+      "capabilities": ["loom-main"]
+    }
+  },
+  "bundle": { "active": false }
+}
